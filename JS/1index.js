@@ -44,3 +44,9 @@ console.log(txt.length);
 let strnum = "123";
 let convert = Number(strnum);
 console.log(convert+10);
+
+/*
+git add JS/
+git commit -m "Added js folder"
+git push
+*/
