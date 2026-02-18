@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="name">Name: </label>
+    <input type="text" >
+    <br> <br>
+    <label for="email">Email: </label>
+    <input type="text">
+    <br> <br>
+    <label for="marks">Phone No: </label>
+    <input type="number">
+    <br> <br>
+    <button onclick="addStudent()">Add Student </button>
+    <h2>Student list</h2>
+    <ul id="Student list"></ul>
+    <script>
+        // array
+        let students = [];
+        // set
+        let emailSet = new Set();
+        // map
+        let gradeMap  = new Map();
+        // fxn
+        function addStudent(){
+            try{ 
+                // debugging ke liye
+                debugger;
+
+                // local scope 
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const marks = Number(document.getElementById("marks").value);
+                // REGEX Validation
+                const emailPatter = /^[^\s@] +@[^\s@]+\,[^\s@]+$/;
+                if(!emailPatter.test(email)){
+                    throw new error("Invalid Email Format ");
+                }
+                
+                if(marks<0 || marks>100){
+                    throw new error("Invalid Marks format");
+                }
+
+                if(emailSet.has(email)){
+                    throw new error("Email already Exista");
+                }
+
+                emailSet.add(email);
+            }
+            catch{
+
+            }
+        }
+    </script>
+    
+</body>
+</html>
